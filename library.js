@@ -61,7 +61,7 @@ function toggleReadButton(e) {
 
     const targetButton = e.target;
     targetButton.classList.toggle('btn-success');
-    targetButton.classList.toggle('btn-warning')
+    targetButton.classList.toggle('btn-warning');
 
     if (targetButton.textContent === 'Read') {
         targetButton.textContent = 'Unread';
@@ -71,28 +71,29 @@ function toggleReadButton(e) {
 
 }
 
-function expandQuestionnaire(e) {
-    e.preventDefault();
 
-    e.target.classList.add('open');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Fake books
+    addBookToLibrary("24", "234", 245, false);
+    addBookToLibrary("256", "281", 35, false);
+    addBookToLibrary("123", "234", 123, true);
+    addBookToLibrary("24", "234", 245, false);
+    addBookToLibrary("256", "281", 35, false);
+    addBookToLibrary("123", "234", 123, true);
+    addBookToLibrary("24", "234", 245, false);
+    addBookToLibrary("256", "281", 35, false);
+    addBookToLibrary("123", "234", 123, true);
+    addBookToLibrary("24", "234", 245, false);
+    addBookToLibrary("256", "281", 35, false);
 
-// Fake books
-addBookToLibrary("24", "234", 245, false);
-addBookToLibrary("256", "281", 35, false);
-addBookToLibrary("123", "234", 123, true);
-addBookToLibrary("24", "234", 245, false);
-addBookToLibrary("256", "281", 35, false);
-addBookToLibrary("123", "234", 123, true);
-addBookToLibrary("24", "234", 245, false);
-addBookToLibrary("256", "281", 35, false);
-addBookToLibrary("123", "234", 123, true);
-addBookToLibrary("24", "234", 245, false);
-addBookToLibrary("256", "281", 35, false);
-
-// click-event listener for readButtons
-const readButtons = document.querySelectorAll('.readButtons');
-readButtons.forEach(readButton => {
-    readButton.addEventListener('click', toggleReadButton);
+    // click-event listener for readButtons
+    const readButtons = document.querySelectorAll('.readButtons');
+    readButtons.forEach(readButton => {
+        readButton.addEventListener('click', toggleReadButton);
+    });
 });
+
+
+
 
