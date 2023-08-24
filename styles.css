@@ -29,7 +29,11 @@ header {
 .books-container {
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+
+    @media (min-width: 632px) {
+        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));    
+    }
+
     height: max-content;
     gap: 2rem;
 }
