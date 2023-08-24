@@ -1,4 +1,6 @@
 const myLibrary = [];
+const booksContainer = document.querySelector('.books-container');
+const addBookForm = document.querySelector('form');
 
 function Book(author, title, pages, read) {
     this.author = author;
@@ -15,8 +17,6 @@ function addBookToLibrary(author, title, pages, read) {
 }
 
 function addBookToDisplay(newBook) {
-    const booksContainer = document.querySelector('.books-container');
-
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card", "card");
 
@@ -84,42 +84,54 @@ function deleteBook(e) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
     
-    // Fake books
-    addBookToLibrary("24", "234", 245, false);
-    addBookToLibrary("256", "281", 35, false);
-    addBookToLibrary("123", "234", 123, true);
-    addBookToLibrary("24", "234", 245, false);
-    addBookToLibrary("256", "281", 35, false);
-    addBookToLibrary("123", "234", 123, true);
-    addBookToLibrary("24", "234", 245, false);
-    addBookToLibrary("256", "281", 35, false);
-    addBookToLibrary("123", "234", 123, true);
-    addBookToLibrary("24", "234", 245, false);
-    addBookToLibrary("256", "281", 35, false);
+// Fake books
+addBookToLibrary("Jane Doe", "The Cross", 293, true);
+addBookToLibrary("John Smith", "Echoes of Eternity", 412, false);
+addBookToLibrary("Emily Johnson", "Whispers in the Wind", 178, true);
+addBookToLibrary("Michael Brown", "Beyond the Horizon", 326, false);
+addBookToLibrary("Sophia Davis", "Midnight Melodies", 245, true);
+addBookToLibrary("William Clark", "Fading Memories", 198, false);
+addBookToLibrary("Olivia Adams", "Eternal Embrace", 310, true);
+addBookToLibrary("David Wilson", "Lost and Found", 234, false);
+addBookToLibrary("Ava Martinez", "The Silent Echo", 289, true);
+addBookToLibrary("Daniel Lee", "Shadows of Yesterday", 173, false);
 
-    const readButtons = document.querySelectorAll('.readButtons');
 
-    // To toggle Read Button
-    readButtons.forEach(readButton => {
-        readButton.addEventListener('click', toggleReadButton);
-    });
+const readButtons = document.querySelectorAll('.readButtons');
 
-    // To delete a book card
-    const deleteButtons = document.querySelectorAll('.delete');
-    deleteButtons.forEach(deleteButton => {
-        deleteButton.addEventListener('click', deleteBook)
-    });
+// To delete a book card or toggle read button
 
-    // To add a book
-    const addBookForm = document.querySelector('.modal-dialog');
-    addBookForm.addEventListener('submit', (e) => {
-        // e.preventDefault();
-        console.log("yes");
-    });
+booksContainer.addEventListener('click', (e) =>{
+    const clickedElement = e.target;
+
+    if (clickedElement.classList.contains('delete')) {
+        deleteBook(e);
+    }
+
+    if (clickedElement.classList.contains('readButtons')) {
+        toggleReadButton(e);
+    }
 });
 
+// To add a book
+addBookForm.addEventListener('submit', (e) => {
 
+    const author = addBookForm.author.value;
+    const title = addBookForm.title.value;
+    const pages = addBookForm.pages.value;
+    const read = addBookForm.read.checked;
+
+    addBookToLibrary(author, title, pages, read);
+    
+    alert(`${title} added to the library!`);
+
+    e.preventDefault();
+
+    addBookForm.author.value = "";
+    addBookForm.title.value = "";
+    addBookForm.pages.value = "";
+    addBookForm.read.checked = false;
+});
 
 

@@ -20,7 +20,7 @@
     </main>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <form class="modal-dialog">
+      <form class="modal-dialog" method="POST" action="">
         <section class="modal-content">
           <section class="modal-header">
             <legend class="modal-title fs-5" id="exampleModalLabel">Add a book</legend>
@@ -48,7 +48,7 @@
           </fieldset>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add book</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add book</button>
           </div>
         </section>
       </form>
