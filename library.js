@@ -71,6 +71,18 @@ function toggleReadButton(e) {
 
 }
 
+function deleteBook(e) {
+    e.preventDefault();
+
+    //Remove from Array
+    const index = e.target.dataset.index;
+    myLibrary.splice(index, 1);
+
+    // Remove from display
+    const bookCard = e.target.closest('.book-card');
+    bookCard.remove();
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -87,10 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
     addBookToLibrary("24", "234", 245, false);
     addBookToLibrary("256", "281", 35, false);
 
-    // click-event listener for readButtons
     const readButtons = document.querySelectorAll('.readButtons');
+
+    // To toggle Read Button
     readButtons.forEach(readButton => {
         readButton.addEventListener('click', toggleReadButton);
+    });
+
+    // To delete a book card
+    const deleteButtons = document.querySelectorAll('.delete');
+    deleteButtons.forEach(deleteButton => {
+        deleteButton.addEventListener('click', deleteBook)
+    });
+
+    // To add a book
+    const addBookForm = document.querySelector('.modal-dialog');
+    addBookForm.addEventListener('submit', (e) => {
+        // e.preventDefault();
+        console.log("yes");
     });
 });
 
