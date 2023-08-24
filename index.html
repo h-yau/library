@@ -4,13 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="library.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
 <body>
-    <h1>Library</h1>
-    <main class="books-container">
-        
+    <header class="sticky">
+      <h1 class="display-1">Library</h1>
+    </header>
+    <main>
+
+        <div class="books-container">
+      </div>
     </main>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form class="modal-dialog">
+        <section class="modal-content">
+          <section class="modal-header">
+            <legend class="modal-title fs-5" id="exampleModalLabel">Add a book</legend>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </section>
+          <fieldset class="modal-body">
+            <div class="input-group flex-nowrap">
+              <label for="author" class="input-group-text required" id="addon-wrapping">Author </label>
+              <input type="text" name="author" placeholder="Author" class="form-control" id="author" aria-label="author" aria-describedby="addon-wrapping" required>
+            </div>
+            <div class="input-group flex-nowrap">
+              <label for="title" class="input-group-text required" id="addon-wrapping">Title </label>
+              <input type="text" name="title" placeholder="Book title" class="form-control" id="title" aria-label="title" aria-describedby="addon-wrapping" required>
+            </div>
+            <div class="input-group">
+              <label for="pages" class="input-group-text required" id="addon-wrapping">Number of Pages </label>
+              <input type="number" name="pages" id="pages" min="1" placeholder="100" class="form-control" aria-label="pages" aria-describedby="addon-wrapping" required>
+            </div>
+            <div class="input-group mb-3">
+              <label for="read" class="input-group-text" id="addon-wrapping">Have you read it?</label>
+              <div class="input-group-text">
+                <input type="checkbox" class="form-check-input mt-0" id="read" aria-label="read">
+              </div>
+            </div>
+          </fieldset>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add book</button>
+          </div>
+        </section>
+      </form>
+    </div>
+    <button type="button" class="btn btn-light add-book button-fixed" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <img src="./icons/book-plus.svg" alt="Add a book" class="icon">
+      <span class="">Add</span>
+    </button>
+    
 </body>
 </html>

@@ -7,9 +7,27 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: antiquewhite;
+}
+
+:root {
+    --add-button-height: 3rem
+}
+
+header {
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 1px rgba(0, 0, 255, .2);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: rgb(219, 218, 218);
 }
 
 .books-container {
+    padding: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     height: max-content;
@@ -17,28 +35,47 @@ body {
 }
 
 .book-card {
-    background-color: lightgray;
+    background-color: rgb(233, 231, 231);
     padding: 1rem;
     border: 1px solid black;
     border-radius: 30px;
+    gap: 0.25rem;
+    justify-content: space-around;
 }
 
-.authors {
-    color: green;
-}
-
-.titles {
-    color: blue
-}
-
-.pages {
-    color: red;
+.delete {
+    align-self: flex-end;
 }
 
 .readButtons {
-    background-color: yellow;
+    max-width: 7rem;
 }
 
 .hasRead {
     background-color: green;
+}
+
+.button-fixed {
+    position: fixed;
+    bottom: 3rem;
+    right: 4rem;
+}
+
+.add-book {
+    height: var(--add-button-height);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid lightgray;
+    box-shadow: 10px 5px 5px rgb(85, 84, 84);
+    scale: 1.5;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}
+
+.icon {
+    height: inherit;
 }
