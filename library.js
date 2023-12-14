@@ -2,12 +2,22 @@ const myLibrary = [];
 const booksContainer = document.querySelector('.books-container');
 const addBookForm = document.querySelector('form');
 
-function Book(author, title, pages, read) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = Boolean(read);
+// function Book(author, title, pages, read) {
+//     this.author = author;
+//     this.title = title;
+//     this.pages = pages;
+//     this.read = Boolean(read);
+// }
+
+class Book {
+    constructor(author, title, pages, read) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = Boolean(read);
+    }
 }
+
 
 function addBookToLibrary(author, title, pages, read) {
     const newBook = new Book(author, title, pages, read);
