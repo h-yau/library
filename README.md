@@ -1,6 +1,6 @@
 # Library Project - Odin Project
 
-Live demo [here](https://nzxzn.github.io/library/)
+Live demo [here](https://h-yau.github.io/library/)
 
 Welcome to my Library Project as part of The Odin Project's curriculum. In this project, I'm creating a virtual library where I can manage and display a collection of books. Here's how I tackled the assignment:
 
